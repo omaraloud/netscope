@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NetScope — Live Network Monitor</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <!-- ───── Header ───── -->
+  <header class="header">
+    <div class="header__brand">
+      <span class="header__logo">◈</span>
+      <span class="header__title">NetScope</span>
+      <span class="header__sub">Real-Time Network Monitor</span>
+    </div>
+    <div class="header__status">
+      <span id="status-dot" class="status-dot status-dot--connecting"></span>
+      <span id="status-label">Connecting…</span>
+    </div>
+    <div class="header__counters">
+      <div class="counter">
+        <span class="counter__value" id="total-count">0</span>
+        <span class="counter__label">Total Packets</span>
+      </div>
+      <div class="counter">
+        <span class="counter__value" id="pps-display">0</span>
+        <span class="counter__label">Packets / sec</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ───── Charts row ───── -->
+  <section class="charts-row">
+
+    <div class="card chart-card">
+      <h2 class="card__title">Protocol Distribution</h2>
+      <div class="chart-wrap chart-wrap--doughnut">
+        <canvas id="chart-protocol"></canvas>
+      </div>
+    </div>
+
+    <div class="card chart-card">
+      <h2 class="card__title">Packets / Second</h2>
+      <div class="chart-wrap">
+        <canvas id="chart-pps"></canvas>
+      </div>
+    </div>
+
+    <div class="card chart-card">
+      <h2 class="card__title">Top Talkers</h2>
+      <div class="chart-wrap">
+        <canvas id="chart-talkers"></canvas>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ───── Packet table ───── -->
+  <section class="card table-card">
+    <div class="table-card__header">
+      <h2 class="card__title">Live Packet Feed</h2>
+      <span class="table-card__hint">Newest packets at top · rolling window 200</span>
+    </div>
+    <div class="table-wrap">
+      <table class="packet-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Source IP</th>
+            <th>Destination IP</th>
+            <th>Protocol</th>
+            <th>Length</th>
+            <th>Info</th>
+          </tr>
+        </thead>
+        <tbody id="packet-tbody">
+          <!-- Rows injected by dashboard.js -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ───── Footer ───── -->
+  <footer class="footer">
+    NetScope v1.0 · Local-only · <a href="https://github.com/yourusername/netscope" target="_blank">GitHub</a>
+  </footer>
+
+  <!-- ───── Scripts ───── -->
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"
+          crossorigin="anonymous"></script>
+  <script src="/static/js/dashboard.js"></script>
+
+</body>
+</html>
