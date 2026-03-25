@@ -8,7 +8,7 @@ NetScope captures live packets from your local network interface, classifies the
 
 ## Screenshot
 
-> *(Dashboard screenshot — run the app and capture your own)*
+<img width="1872" height="950" alt="image" src="https://github.com/user-attachments/assets/33b832be-da26-47b4-ae41-f1f665726d54" />
 
 ---
 
